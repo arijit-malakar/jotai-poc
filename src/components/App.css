@@ -1,0 +1,7 @@
+.gradient-background {
+    height: 100vh;
+    position: relative;
+    background: linear-gradient( 109.6deg, rgba(156,252,248,1) 11.2%, rgba(110,123,251,1) 91.1% );
+    /* background: linear-gradient( 95.2deg, rgba(173,252,234,1) 26.8%, rgba(192,229,246,1) 64% ); */
+    /* background: linear-gradient(to right, #c6ffdd, #fbd786, #f7797d); */
+}

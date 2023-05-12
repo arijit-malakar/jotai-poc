@@ -1,9 +1,10 @@
 import 'bulma/css/bulma.css';
+import './App.css';
 import TodoList from "./TodoList";
 
 const App: React.FC = () => {
     return (
-        <div>
+        <div className="gradient-background">
             <TodoList />
         </div>
     );

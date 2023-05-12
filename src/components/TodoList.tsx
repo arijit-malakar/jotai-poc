@@ -1,5 +1,6 @@
 import { atom, useAtom } from "jotai";
 import { useState } from "react";
+import './TodoList.css';
 
 type Todo = {
     id: number;
@@ -64,26 +65,24 @@ const TodoList: React.FC = () => {
     };
 
     const renderedTodos = todos.map((todo) => (
-        <div key={todo.id} className="panel-block">
+        <div key={todo.id} className="todo-list-item mb-3">
             <label className="checkbox">
-                <input
+                <input className="mr-3"
                     type="checkbox"
                     checked={todo.completed}
                     onChange={() => handleToggleTodo(todo.id)}
                 />
-                {todo.text}
+                <span>{todo.text}</span>
             </label>
         </div>
     ));
 
     return (
         <section className="section m-auto">
-            <div className="columns is-centered">
-                <div className="column is-two-fifths">
-                    <nav className="panel is-success">
-                        <p className="panel-heading">To-do List</p>
-                        <div className="panel-block">
-                            <div className="block m-auto">
+            <div className="columns is-centered m-auto">
+                    <div className="panel is-success w-40">
+                        <h3 className="panel-heading py-4">To-do List</h3>
+                        <div className="todo-add">
                                 <div className="field is-grouped">
                                     <div className="control is-expanded">
                                         <input
@@ -97,14 +96,15 @@ const TodoList: React.FC = () => {
                                         <button className="button is-primary" onClick={handleAddTodo}>Add</button>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        {todos.length > 0 ? renderedTodos : <div className="panel-block"><span className="m-auto">Seems like you haven't got any tasks!</span></div>}
-                        <div className="panel-block">
+                        <div className="mt-5">
+                            {todos.length > 0 ? renderedTodos : <div className="todo-box-empty">Seems like you haven't got any tasks!</div>}
+                        </div>                            
+                        <div className="panel-block p-0 mt-5">
                             <button className="button is-danger is-outlined is-fullwidth" onClick={handleClearCompleted}>Clear Completed</button>
                         </div>
-                    </nav>
-                </div>
+                        </div>
+                    </div>
+          
             </div>
         </section>
     );
